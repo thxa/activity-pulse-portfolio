@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans text-lg;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] .section-heading:after {
+    right: 0;
+    left: auto;
+  }
+
+  /* Language specific font families */
+  .rtl {
+    @apply font-arabic;
+  }
+
+  .ltr {
+    @apply font-english;
+  }
+
+  /* Larger font sizes for common UI elements */
+  p {
+    @apply text-lg;
+  }
+
+  button, a, input, select, textarea {
+    @apply text-lg;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl font-bold;
+  }
+
+  h4 {
+    @apply text-xl font-bold;
+  }
+}
+
+/* Saudi-specific fonts - Local files */
+@font-face {
+  font-family: 'Saudi';
+  src: url('/fonts/Saudi-Regular.ttf') format('truetype'),
+       url('/fonts/SaudiWeb-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Saudi';
+  src: url('/fonts/Saudi-Bold.ttf') format('truetype'),
+       url('/fonts/SaudiWeb-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer components {
+  .heatmap-cell {
+    @apply rounded-sm h-3 w-3 sm:h-[14px] sm:w-[14px] md:h-4 md:w-4 transition-all inline-flex flex-shrink-0 shadow-sm;
+  }
+  
+  .platform-checkbox:checked + label span.platform-icon {
+    @apply opacity-100;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-5 mt-8 relative;
+  }
+  
+  .section-heading:after {
+    content: '';
+    @apply absolute left-0 bottom-0 h-1 w-16 bg-primary rounded;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border shadow-sm transition-all hover:shadow-md;
+  }
+  
+  /* RTL specific styles */
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+/* Heatmap level colors - Enhanced for better visibility */
+.level-0 {
+  @apply bg-gray-100/20 dark:bg-gray-800/30 border border-gray-200/30 dark:border-gray-700/30;
+}
+
+.level-1 {
+  @apply bg-blue-200/80 dark:bg-blue-900/60 border-blue-300/30 dark:border-blue-800/50;
+}
+
+.level-2 {
+  @apply bg-blue-300/90 dark:bg-blue-700/80 border-blue-400/40 dark:border-blue-600/50;
+}
+
+.level-3 {
+  @apply bg-blue-500/90 dark:bg-blue-500/90 border-blue-600/40 dark:border-blue-400/50;
+}
+
+.level-4 {
+  @apply bg-blue-600 dark:bg-blue-300/90 border-blue-700/40 dark:border-blue-200/50;
+}
+
+/* Month column styling */
+.month-column {
+  @apply border-r border-border/30 last:border-r-0 flex-shrink-0;
+}
+
+/* Even/odd month styling for visual separation */
+.even-month {
+  @apply bg-transparent dark:bg-transparent;
+}
+
+.odd-month {
+  @apply bg-gray-50/50 dark:bg-gray-800/30;
+}
+
+/* Current day highlight */
+.current-day {
+  @apply ring-2 ring-primary/70 dark:ring-primary/90;
+}
+
+/* Year label styling */
+.year-label {
+  @apply text-primary/90 dark:text-primary/80 transition-all hover:text-primary;
+}
+
+/* Platform specific colors */
+.github {
+  @apply bg-[#333333] dark:bg-[#333333];
+}
+
+.leetcode {
+  @apply bg-[#FFA116] dark:bg-[#FFA116];
+}
+
+.kaggle {
+  @apply bg-[#20BEFF] dark:bg-[#20BEFF];
+}
+
+.codeforces {
+  @apply bg-[#1F8ACB] dark:bg-[#1F8ACB];
+}
+
+.hackthebox {
+  @apply bg-[#9FEF00] dark:bg-[#9FEF00];
+}
+
+.hackerrank {
+  @apply bg-[#2EC866] dark:bg-[#2EC866];
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
