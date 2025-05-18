@@ -24,100 +24,6 @@ const githubRealData: Activity[] = [
       type: 'commit', 
       repo: 'thxa/activity-pulse-portfolio' 
     } 
-  },
-  { 
-    date: '2024-05-02', 
-    platform: 'github', 
-    count: 3, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/activity-pulse-portfolio' 
-    } 
-  },
-  { 
-    date: '2024-05-04', 
-    platform: 'github', 
-    count: 2, 
-    details: { 
-      type: 'pull request', 
-      repo: 'thxa/ai-project-tracker' 
-    } 
-  },
-  { 
-    date: '2024-05-07', 
-    platform: 'github', 
-    count: 6, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/cybersecurity-tools' 
-    } 
-  },
-  { 
-    date: '2024-05-10', 
-    platform: 'github', 
-    count: 4, 
-    details: { 
-      type: 'issue', 
-      repo: 'thxa/ctf-solutions' 
-    } 
-  },
-  
-  // Add more dates here
-  { 
-    date: '2024-04-05', 
-    platform: 'github', 
-    count: 8, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/ctf-solutions' 
-    } 
-  },
-  { 
-    date: '2024-04-12', 
-    platform: 'github', 
-    count: 3, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/algorithm-visualizer' 
-    } 
-  },
-  { 
-    date: '2024-04-15', 
-    platform: 'github', 
-    count: 4, 
-    details: { 
-      type: 'pull request', 
-      repo: 'thxa/algorithm-visualizer' 
-    } 
-  },
-  
-  // 2023 data
-  { 
-    date: '2023-12-10', 
-    platform: 'github', 
-    count: 7, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/personal-website' 
-    } 
-  },
-  { 
-    date: '2023-11-25', 
-    platform: 'github', 
-    count: 5, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/competitive-programming' 
-    } 
-  },
-  { 
-    date: '2023-10-15', 
-    platform: 'github', 
-    count: 3, 
-    details: { 
-      type: 'issue', 
-      repo: 'thxa/cybersecurity-tools' 
-    } 
   }
 ];
 
@@ -134,90 +40,6 @@ const leetcodeRealData: Activity[] = [
       difficulty: 'Easy', 
       status: 'Accepted' 
     } 
-  },
-  { 
-    date: '2024-05-05', 
-    platform: 'leetcode', 
-    count: 1, 
-    details: { 
-      problemName: 'Median of Two Sorted Arrays', 
-      difficulty: 'Hard', 
-      status: 'Accepted' 
-    } 
-  },
-  { 
-    date: '2024-05-08', 
-    platform: 'leetcode', 
-    count: 3, 
-    details: { 
-      problemName: 'Longest Substring Without Repeating Characters', 
-      difficulty: 'Medium', 
-      status: 'Accepted' 
-    } 
-  },
-  
-  // Add more dates
-  { 
-    date: '2024-04-10', 
-    platform: 'leetcode', 
-    count: 2, 
-    details: { 
-      problemName: 'Valid Parentheses', 
-      difficulty: 'Easy', 
-      status: 'Accepted' 
-    } 
-  },
-  { 
-    date: '2024-04-11', 
-    platform: 'leetcode', 
-    count: 1, 
-    details: { 
-      problemName: 'LRU Cache', 
-      difficulty: 'Medium', 
-      status: 'Accepted' 
-    } 
-  },
-  { 
-    date: '2024-04-20', 
-    platform: 'leetcode', 
-    count: 3, 
-    details: { 
-      problemName: 'Binary Tree Maximum Path Sum', 
-      difficulty: 'Hard', 
-      status: 'Accepted' 
-    } 
-  },
-  
-  // 2023 data
-  { 
-    date: '2023-12-05', 
-    platform: 'leetcode', 
-    count: 2, 
-    details: { 
-      problemName: 'Merge k Sorted Lists', 
-      difficulty: 'Hard', 
-      status: 'Accepted' 
-    } 
-  },
-  { 
-    date: '2023-11-15', 
-    platform: 'leetcode', 
-    count: 1, 
-    details: { 
-      problemName: 'Course Schedule', 
-      difficulty: 'Medium', 
-      status: 'Accepted' 
-    } 
-  },
-  { 
-    date: '2023-10-20', 
-    platform: 'leetcode', 
-    count: 2, 
-    details: { 
-      problemName: 'Subarray Sum Equals K', 
-      difficulty: 'Medium', 
-      status: 'Accepted' 
-    } 
   }
 ];
 
@@ -225,8 +47,8 @@ const leetcodeRealData: Activity[] = [
 const generateActivityData = (): Activity[] => {
   // Start with real data
   const activities: Activity[] = [
-    ...githubRealData,
-    ...leetcodeRealData
+    // ...githubRealData,
+    // ...leetcodeRealData
   ];
   
   // Generate simulated data for other platforms and fill gaps
@@ -235,43 +57,43 @@ const generateActivityData = (): Activity[] => {
   
   // Loop through each day from 2017 to present
   for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
-    const workloadFactor = getWorkloadFactor(date);
-    const year = date.getFullYear();
+    // const workloadFactor = getWorkloadFactor(date);
+    // const year = date.getFullYear();
     
-    // Check if date already has GitHub data
-    const dateStr = date.toISOString().split('T')[0];
-    const hasGithubData = activities.some(a => 
-      a.date === dateStr && a.platform === 'github'
-    );
+    // // Check if date already has GitHub data
+    // const dateStr = date.toISOString().split('T')[0];
+    // const hasGithubData = activities.some(a => 
+    //   a.date === dateStr && a.platform === 'github'
+    // );
     
-    // Check if date already has LeetCode data
-    const hasLeetCodeData = activities.some(a => 
-      a.date === dateStr && a.platform === 'leetcode'
-    );
+    // // Check if date already has LeetCode data
+    // const hasLeetCodeData = activities.some(a => 
+    //   a.date === dateStr && a.platform === 'leetcode'
+    // );
     
-    // If no GitHub data for this date, possibly generate some
-    if (!hasGithubData) {
-      const githubActivities = getGitHubActivities(date, workloadFactor);
-      activities.push(...githubActivities);
-    }
+    // // If no GitHub data for this date, possibly generate some
+    // if (!hasGithubData) {
+    //   const githubActivities = getGitHubActivities(date, workloadFactor);
+    //   activities.push(...githubActivities);
+    // }
     
-    // If no LeetCode data for this date, possibly generate some
-    if (!hasLeetCodeData) {
-      const leetcodeActivities = getLeetCodeActivities(date, workloadFactor);
-      activities.push(...leetcodeActivities);
-    }
+    // // If no LeetCode data for this date, possibly generate some
+    // if (!hasLeetCodeData) {
+    //   const leetcodeActivities = getLeetCodeActivities(date, workloadFactor);
+    //   activities.push(...leetcodeActivities);
+    // }
     
-    // Always generate data for other platforms
-    activities.push(...getKaggleActivities(date, workloadFactor));
-    activities.push(...getCodeforcesActivities(date, workloadFactor));
-    activities.push(...getHackTheBoxActivities(date, workloadFactor));
-    activities.push(...getHackerRankActivities(date, workloadFactor));
-    activities.push(...getVJudgeActivities(date, workloadFactor));
-    activities.push(...getCodeWarsActivities(date, workloadFactor));
-    activities.push(...getSatrActivities(date, workloadFactor));
-    activities.push(...getCyberHubActivities(date, workloadFactor));
-    activities.push(...getPicoCTFActivities(date, workloadFactor));
-    activities.push(...getFlagYardActivities(date, workloadFactor));
+    // // Always generate data for other platforms
+    // activities.push(...getKaggleActivities(date, workloadFactor));
+    // activities.push(...getCodeforcesActivities(date, workloadFactor));
+    // activities.push(...getHackTheBoxActivities(date, workloadFactor));
+    // activities.push(...getHackerRankActivities(date, workloadFactor));
+    // activities.push(...getVJudgeActivities(date, workloadFactor));
+    // activities.push(...getCodeWarsActivities(date, workloadFactor));
+    // activities.push(...getSatrActivities(date, workloadFactor));
+    // activities.push(...getCyberHubActivities(date, workloadFactor));
+    // activities.push(...getPicoCTFActivities(date, workloadFactor));
+    // activities.push(...getFlagYardActivities(date, workloadFactor));
   }
   
   return activities;

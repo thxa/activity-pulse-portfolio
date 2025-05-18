@@ -70,19 +70,20 @@ const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
           {translations[language].activityHeatmapTitle} {selectedYear}
         </h3>
         
-        {totalActivities === 0 ? (
-          <div className="text-center py-10">
-            <p className="text-muted-foreground">
-              {translations[language].noActivity}
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              {selectedPlatforms.length === 0 
-                ? translations[language].selectPlatformsFilter
-                : translations[language].selectDifferentYear
-              }
-            </p>
-          </div>
-        ) : (
+        {/* {totalActivities === 0 ? (
+          // <div className="text-center py-10">
+          //   <p className="text-muted-foreground">
+          //     {translations[language].noActivity}
+          //   </p>
+          //   <p className="text-sm text-muted-foreground mt-2">
+          //     {selectedPlatforms.length === 0 
+          //       ? translations[language].selectPlatformsFilter
+          //       : translations[language].selectDifferentYear
+          //     }
+          //   </p>
+          // </div>
+
+        ) : ( */}
           <>
           <div className="overflow-x-auto">
             <HeatmapGrid 
@@ -90,14 +91,12 @@ const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
               activitiesByDate={activitiesByDate} 
               getActivityLevel={getActivityLevel} 
             />
-            
-
           </div>
           <div className="mt-6">
             <HeatmapLegend />
           </div>
           </>
-        )}
+        {/* )} */}
       </Card>
     </div>
   );
