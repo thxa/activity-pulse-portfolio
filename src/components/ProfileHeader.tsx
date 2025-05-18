@@ -3,11 +3,12 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Download, Github, ExternalLink, Linkedin } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/locales/translations';
 import { platforms } from '@/data/mockData';
 import { useTheme } from '@/context/ThemeContext';
+import { profileConfig } from '../config/profile';
 
 const ProfileHeader: React.FC = () => {
   const { language, isRTL } = useLanguage();
@@ -35,12 +36,26 @@ const ProfileHeader: React.FC = () => {
             </div>
             
             <div className="flex gap-3 mb-6">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Download className="h-4 w-4" />
-                {t.downloadCV}
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2"
+                onClick={() => window.open(profileConfig.resumePath, '_blank')}
+                asChild
+              >
+                <a href={profileConfig.resumePath} download>
+                  <Download className="h-4 w-4" />
+                  {t.downloadCV}
+                </a>
               </Button>
-              <Button size="sm" className="gap-2">
-                {t.contactMe}
+              <Button 
+                size="sm" 
+                className="gap-2"
+                asChild
+              >
+                <a href={`mailto:${profileConfig.email}`}>
+                  {t.contactMe}
+                </a>
               </Button>
             </div>
           </div>

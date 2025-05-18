@@ -83,6 +83,7 @@ const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
             </p>
           </div>
         ) : (
+          <>
           <div className="overflow-x-auto">
             <HeatmapGrid 
               monthsInRange={monthsInRange} 
@@ -90,10 +91,12 @@ const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
               getActivityLevel={getActivityLevel} 
             />
             
-            <div className="mt-6">
-              <HeatmapLegend />
-            </div>
+
           </div>
+          <div className="mt-6">
+            <HeatmapLegend />
+          </div>
+          </>
         )}
       </Card>
     </div>

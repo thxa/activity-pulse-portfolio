@@ -47,12 +47,11 @@ const Index = () => {
               
               {/* Center heatmap with better alignment */}
               {/* <div className="lg:w-3/4"> */}
-                <div className="flex">
-                  <div className="w-full overflow-x-auto">
+              <div className="flex">
+                <div className="w-full overflow-x-auto">
                     <ActivityHeatmap selectedPlatforms={selectedPlatforms} />
-                  </div>
                 </div>
-              {/* </div> */}
+              </div>
             </div>
           </section>
           
