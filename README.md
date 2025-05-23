@@ -1,7 +1,7 @@
 # Welcome to Portfolio
 ## Project info
 
-Activity Pulse Portfolio is a dynamic and interactive personal portfolio website for Thamer Alharbi, featuring:
+Activity Pulse Portfolio is a dynamic and interactive personal portfolio website, featuring:
 
 - Interactive activity heatmap that visualizes contributions across different platforms
 - Responsive profile section with customizable bio and social links
