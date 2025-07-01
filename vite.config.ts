@@ -12,10 +12,11 @@ export default defineConfig({
   // plugins: [
   //   react(),
   // ].filter(Boolean),
-
-  plugins: [
-    react(),
-  ],
+  plugins: [react()],
+  server: {
+    open: true,
+    port: 3001,
+  },
   base: "/activity-pulse-portfolio/",
   resolve: {
     alias: {
