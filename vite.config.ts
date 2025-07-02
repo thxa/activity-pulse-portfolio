@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     port: 3001,
     open: true,
   },
-  base: mode === 'development' ? '/' : '/activity-pulse-portfolio/',
+  base: mode === 'development' ? '/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
