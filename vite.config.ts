@@ -17,7 +17,7 @@ export default defineConfig({
     open: true,
     port: 3001,
   },
-  base: "/activity-pulse-portfolio/",
+  // base: "/activity-pulse-portfolio/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
