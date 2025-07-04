@@ -57,7 +57,7 @@ export const translations = {
     A software engineer with a strong interest in cybersecurity, machine learning, and full-stack development. I hold a bachelor's degree in Software Engineering and have built a solid foundation across multiple domains of modern computing.
     I enjoy building secure and scalable web applications using technologies like FastAPI, React.js, PostgreSQL, and Docker. I'm also passionate about deploying intelligent systems with cloud platforms like AWS, where I hold certifications in Machine Learning and Solutions Architecture.
     My journey includes placing in national programming contests, and participating in CTFs and Kaggle competitions. I thrive on solving real-world problems, exploring new technologies, and continuously pushing my limits.
-    Whether it’s engineering backend logic, optimizing AI models, or defending digital systems. I’m always ready to build, learn, and secure.
+    Whether it's engineering backend logic, optimizing AI models, or defending digital systems. I'm always ready to build, learn, and secure.
     `,
     myProfiles: 'My Profiles',
     // Index Page
@@ -70,6 +70,15 @@ export const translations = {
     projectsGalleryDescription: 'Showcase of my best projects with descriptions and live demos.',
     timelineMilestones: 'Timeline Milestones',
     timelineMilestonesDescription: 'Significant achievements and events marked on the timeline.',
+    
+    // Blog
+    blog: 'Blog',
+    recentBlogs: 'Recent Blogs',
+    recentBlogsDescription: 'Latest insights and tutorials from my blog',
+    viewAllPosts: 'View All Posts',
+    readMore: 'Read more',
+    noBlogPosts: 'No blog posts available yet',
+    checkBackSoon: 'Check back soon for new content!',
     
     // Footer
     copyright: 'All rights reserved.',
@@ -142,6 +151,15 @@ export const translations = {
     projectsGalleryDescription: 'عرض لأفضل مشاريعي مع أوصاف وعروض توضيحية.',
     timelineMilestones: 'معالم الجدول الزمني',
     timelineMilestonesDescription: 'الإنجازات والأحداث المهمة مميزة على الجدول الزمني.',
+    
+    // Blog
+    blog: 'المدونة',
+    recentBlogs: 'المدونات الحديثة',
+    recentBlogsDescription: 'أحدث الرؤى والدروس من مدونتي',
+    viewAllPosts: 'عرض جميع المقالات',
+    readMore: 'اقرأ المزيد',
+    noBlogPosts: 'لا توجد مقالات مدونة متاحة بعد',
+    checkBackSoon: 'عد قريبًا للمحتوى الجديد!',
     
     // Footer
     copyright: 'جميع الحقوق محفوظة.',

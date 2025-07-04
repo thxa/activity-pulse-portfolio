@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
+import BlogPage from './pages/BlogPage'
+
 
 const queryClient = new QueryClient();
 
@@ -22,7 +24,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
+              <Route path="/blog/*" element={<BlogPage />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
