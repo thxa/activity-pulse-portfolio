@@ -14,34 +14,34 @@ export interface Activity {
 
 // Real GitHub data for thxa profile
 // These are manually extracted data points representing real activity
-const githubRealData: Activity[] = [
-  // 2024 data
-  { 
-    date: '2024-05-01', 
-    platform: 'github', 
-    count: 5, 
-    details: { 
-      type: 'commit', 
-      repo: 'thxa/activity-pulse-portfolio' 
-    } 
-  }
-];
+// const githubRealData: Activity[] = [
+//   // 2024 data
+//   { 
+//     date: '2024-05-01', 
+//     platform: 'github', 
+//     count: 5, 
+//     details: { 
+//       type: 'commit', 
+//       repo: 'thxa/activity-pulse-portfolio' 
+//     } 
+//   }
+// ];
 
-// Real LeetCode data for 7H4M3R profile
-// These are manually extracted data points representing real activity
-const leetcodeRealData: Activity[] = [
-  // 2024 data
-  { 
-    date: '2024-05-03', 
-    platform: 'leetcode', 
-    count: 2, 
-    details: { 
-      problemName: 'Two Sum', 
-      difficulty: 'Easy', 
-      status: 'Accepted' 
-    } 
-  }
-];
+// // Real LeetCode data for 7H4M3R profile
+// // These are manually extracted data points representing real activity
+// const leetcodeRealData: Activity[] = [
+//   // 2024 data
+//   { 
+//     date: '2024-05-03', 
+//     platform: 'leetcode', 
+//     count: 2, 
+//     details: { 
+//       problemName: 'Two Sum', 
+//       difficulty: 'Easy', 
+//       status: 'Accepted' 
+//     } 
+//   }
+// ];
 
 // Function to generate realistic activity data including real data from profiles
 const generateActivityData = (): Activity[] => {
@@ -52,49 +52,49 @@ const generateActivityData = (): Activity[] => {
   ];
   
   // Generate simulated data for other platforms and fill gaps
-  const startDate = new Date('2017-01-01');
-  const endDate = new Date();
+  // const startDate = new Date('2017-01-01');
+  // const endDate = new Date();
   
-  // Loop through each day from 2017 to present
-  for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
-    // const workloadFactor = getWorkloadFactor(date);
-    // const year = date.getFullYear();
+  // // // Loop through each day from 2017 to present
+  // for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
+  //   const workloadFactor = getWorkloadFactor(date);
+  //   const year = date.getFullYear();
     
-    // // Check if date already has GitHub data
-    // const dateStr = date.toISOString().split('T')[0];
-    // const hasGithubData = activities.some(a => 
-    //   a.date === dateStr && a.platform === 'github'
-    // );
+  //   // Check if date already has GitHub data
+  //   const dateStr = date.toISOString().split('T')[0];
+  //   const hasGithubData = activities.some(a => 
+  //     a.date === dateStr && a.platform === 'github'
+  //   );
     
-    // // Check if date already has LeetCode data
-    // const hasLeetCodeData = activities.some(a => 
-    //   a.date === dateStr && a.platform === 'leetcode'
-    // );
+  //   // Check if date already has LeetCode data
+  //   const hasLeetCodeData = activities.some(a => 
+  //     a.date === dateStr && a.platform === 'leetcode'
+  //   );
     
-    // // If no GitHub data for this date, possibly generate some
-    // if (!hasGithubData) {
-    //   const githubActivities = getGitHubActivities(date, workloadFactor);
-    //   activities.push(...githubActivities);
-    // }
+  //   // If no GitHub data for this date, possibly generate some
+  //   if (!hasGithubData) {
+  //     const githubActivities = getGitHubActivities(date, workloadFactor);
+  //     activities.push(...githubActivities);
+  //   }
     
-    // // If no LeetCode data for this date, possibly generate some
-    // if (!hasLeetCodeData) {
-    //   const leetcodeActivities = getLeetCodeActivities(date, workloadFactor);
-    //   activities.push(...leetcodeActivities);
-    // }
+  //   // If no LeetCode data for this date, possibly generate some
+  //   if (!hasLeetCodeData) {
+  //     const leetcodeActivities = getLeetCodeActivities(date, workloadFactor);
+  //     activities.push(...leetcodeActivities);
+  //   }
     
-    // // Always generate data for other platforms
-    // activities.push(...getKaggleActivities(date, workloadFactor));
-    // activities.push(...getCodeforcesActivities(date, workloadFactor));
-    // activities.push(...getHackTheBoxActivities(date, workloadFactor));
-    // activities.push(...getHackerRankActivities(date, workloadFactor));
-    // activities.push(...getVJudgeActivities(date, workloadFactor));
-    // activities.push(...getCodeWarsActivities(date, workloadFactor));
-    // activities.push(...getSatrActivities(date, workloadFactor));
-    // activities.push(...getCyberHubActivities(date, workloadFactor));
-    // activities.push(...getPicoCTFActivities(date, workloadFactor));
-    // activities.push(...getFlagYardActivities(date, workloadFactor));
-  }
+  //   // Always generate data for other platforms
+  //   // activities.push(...getKaggleActivities(date, workloadFactor));
+  //   // activities.push(...getCodeforcesActivities(date, workloadFactor));
+  //   // activities.push(...getHackTheBoxActivities(date, workloadFactor));
+  //   // activities.push(...getHackerRankActivities(date, workloadFactor));
+  //   // activities.push(...getVJudgeActivities(date, workloadFactor));
+  //   // activities.push(...getCodeWarsActivities(date, workloadFactor));
+  //   // activities.push(...getSatrActivities(date, workloadFactor));
+  //   // activities.push(...getCyberHubActivities(date, workloadFactor));
+  //   // activities.push(...getPicoCTFActivities(date, workloadFactor));
+  //   // activities.push(...getFlagYardActivities(date, workloadFactor));
+  // }
   
   return activities;
 };
@@ -546,6 +546,69 @@ const getFlagYardActivities = (date: Date, workloadFactor: number): Activity[] =
 // Export the complete activity data with real profile data integrated
 export const mockActivities = generateActivityData();
 
+// Function to get all activities including real data from external sources
+export async function getAllActivities(): Promise<Activity[]> {
+  const activities = [...mockActivities];
+  
+  // Try to fetch real Kaggle data
+  try {
+    const kaggleResponse = await fetch('/activities/kaggle.json');
+    if (kaggleResponse.ok) {
+      const kaggleData = await kaggleResponse.json();
+      // Replace any existing Kaggle data with real data
+      const filteredActivities = activities.filter(a => a.platform !== 'kaggle');
+      activities.length = 0;
+      activities.push(...filteredActivities, ...kaggleData);
+    }
+  } catch (error) {
+    console.warn('Could not fetch real Kaggle data, using simulated data');
+  }
+  
+  // Try to fetch real GitHub data
+  try {
+    const githubResponse = await fetch('/activities/github.json');
+    if (githubResponse.ok) {
+      const githubData = await githubResponse.json();
+      // Replace any existing GitHub data with real data
+      const filteredActivities = activities.filter(a => a.platform !== 'github');
+      activities.length = 0;
+      activities.push(...filteredActivities, ...githubData);
+    }
+  } catch (error) {
+    console.warn('Could not fetch real GitHub data, using simulated data');
+  }
+  
+  // Try to fetch real LeetCode data
+  try {
+    const leetcodeResponse = await fetch('/activities/leetcode.json');
+    if (leetcodeResponse.ok) {
+      const leetcodeData = await leetcodeResponse.json();
+      // Replace any existing LeetCode data with real data
+      const filteredActivities = activities.filter(a => a.platform !== 'leetcode');
+      activities.length = 0;
+      activities.push(...filteredActivities, ...leetcodeData);
+    }
+  } catch (error) {
+    console.warn('Could not fetch real LeetCode data, using simulated data');
+  }
+  
+  // Try to fetch real VJudge data
+  try {
+    const vjudgeResponse = await fetch('/activities/vjudge.json');
+    if (vjudgeResponse.ok) {
+      const vjudgeData = await vjudgeResponse.json();
+      // Replace any existing VJudge data with real data
+      const filteredActivities = activities.filter(a => a.platform !== 'vjudge');
+      activities.length = 0;
+      activities.push(...filteredActivities, ...vjudgeData);
+    }
+  } catch (error) {
+    console.warn('Could not fetch real VJudge data, using simulated data');
+  }
+  
+  return activities;
+}
+
 // Platform info for display
 export const platforms: PlatformInfo[] = [
   {
@@ -614,7 +677,7 @@ export const platforms: PlatformInfo[] = [
   },
   {
     id: 'satr',
-    name: 'Satr',
+    name: 'Coderhub',
     color: '#00B6F0',
     url: 'https://profile.satr.codes/thxa/public/overview',
     icon: '⭐',

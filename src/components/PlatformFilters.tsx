@@ -6,30 +6,28 @@ import { Label } from '@/components/ui/label';
 import { useTheme } from '@/context/ThemeContext';
 
 interface PlatformFiltersProps {
+  selectedPlatforms: string[];
   onFilterChange: (selectedPlatforms: string[]) => void;
 }
 
-const PlatformFilters: React.FC<PlatformFiltersProps> = ({ onFilterChange }) => {
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>(
-    platforms.map((platform) => platform.id)
-  );
+const PlatformFilters: React.FC<PlatformFiltersProps> = ({ 
+  selectedPlatforms, 
+  onFilterChange 
+}) => {
   const { theme } = useTheme();
 
   const handlePlatformToggle = (platformId: string) => {
-    setSelectedPlatforms((current) => {
-      // If already selected, remove it
-      if (current.includes(platformId)) {
-        const updated = current.filter((id) => id !== platformId);
-        // Ensure at least one platform is selected
-        if (updated.length === 0) return current;
-        onFilterChange(updated);
-        return updated;
-      } 
-      // Otherwise add it
-      const updated = [...current, platformId];
+    // If already selected, remove it
+    if (selectedPlatforms.includes(platformId)) {
+      const updated = selectedPlatforms.filter((id) => id !== platformId);
+      // Ensure at least one platform is selected
+      if (updated.length === 0) return;
       onFilterChange(updated);
-      return updated;
-    });
+    } else {
+      // Otherwise add it
+      const updated = [...selectedPlatforms, platformId];
+      onFilterChange(updated);
+    }
   };
 
   return (

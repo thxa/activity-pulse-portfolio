@@ -13,7 +13,7 @@ import {
   endOfYear,
   parseISO
 } from 'date-fns';
-import { Activity, mockActivities } from '@/data/mockData';
+import { Activity, mockActivities, getAllActivities } from '@/data/mockData';
 
 export const useActivityData = (
   selectedPlatforms: string[], 
@@ -25,15 +25,36 @@ export const useActivityData = (
   const [availableYears, setAvailableYears] = useState<number[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const [allActivities, setAllActivities] = useState<Activity[]>([]);
 
   const currentYear = new Date().getFullYear();
 
+  // Load all activities including real data
+  useEffect(() => {
+    const loadActivities = async () => {
+      try {
+        setLoading(true);
+        const activities = await getAllActivities();
+        setAllActivities(activities);
+      } catch (err) {
+        console.error('Error loading activities:', err);
+        setError(err instanceof Error ? err : new Error('Error loading activity data'));
+        // Fallback to mock data
+        setAllActivities(mockActivities);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadActivities();
+  }, []);
+
   // Find all available years in the data
   useEffect(() => {
+    if (allActivities.length === 0) return;
+    
     try {
-      setLoading(true);
-      
-      const years = mockActivities.reduce((acc, activity) => {
+      const years = allActivities.reduce((acc, activity) => {
         const year = getYear(parseISO(activity.date));
         if (!acc.includes(year)) {
           acc.push(year);
@@ -53,18 +74,18 @@ export const useActivityData = (
     } catch (err) {
       console.error('Error determining available years:', err);
       setError(err instanceof Error ? err : new Error('Error processing data'));
-    } finally {
-      setLoading(false);
     }
-  }, [currentYear]);
+  }, [allActivities, currentYear]);
 
   // Filter activities based on selected platforms and year
   useEffect(() => {
+    if (allActivities.length === 0) return;
+    
     try {
       setLoading(true);
       
       // Filter activities by platform and year
-      const filtered = mockActivities.filter(activity => 
+      const filtered = allActivities.filter(activity => 
         selectedPlatforms.includes(activity.platform) && 
         getYear(parseISO(activity.date)) === selectedYear
       );
@@ -85,7 +106,7 @@ export const useActivityData = (
     } finally {
       setLoading(false);
     }
-  }, [selectedPlatforms, selectedYear]);
+  }, [allActivities, selectedPlatforms, selectedYear]);
 
   // Generate calendar data for selected year
   useEffect(() => {

@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   ],
   server: {
     port: 3001,
-    open: true,
+    open: true
   },
   base: mode === "development" ? "/" : "/",
   resolve: {

@@ -80,6 +80,10 @@ export const translations = {
     noBlogPosts: 'No blog posts available yet',
     checkBackSoon: 'Check back soon for new content!',
     
+    // Certifications
+    certifications: 'Certifications',
+    certificationsDescription: 'Professional certifications and achievements from various platforms',
+    
     // Footer
     copyright: 'All rights reserved.',
     linkedin: 'LinkedIn'
@@ -160,6 +164,10 @@ export const translations = {
     readMore: 'اقرأ المزيد',
     noBlogPosts: 'لا توجد مقالات مدونة متاحة بعد',
     checkBackSoon: 'عد قريبًا للمحتوى الجديد!',
+    
+    // Certifications
+    certifications: 'الشهادات',
+    certificationsDescription: 'الشهادات المهنية والإنجازات من مختلف المنصات',
     
     // Footer
     copyright: 'جميع الحقوق محفوظة.',

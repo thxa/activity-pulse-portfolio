@@ -10,6 +10,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "gbi": "node scripts/generate-blog-index.ts",
+    "gbb": "node scripts/generate-badges.ts",
+    "gka": "node scripts/generate-kaggle-activity.ts",
+    "gga": "node scripts/generate-github-activity.ts",
+    "gla": "node scripts/generate-leetcode-activity.ts",
+    "gva": "npx tsx scripts/generate-vjudge-activity.ts",
+    "test-data": "node scripts/test-data-integration.ts",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
