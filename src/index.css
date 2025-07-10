@@ -1,3 +1,5 @@
+@import 'github-markdown-css/github-markdown-light.css';
+@import 'github-markdown-css/github-markdown-dark.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -245,4 +247,65 @@
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+/* PDF Export Styles */
+.pdf-title-page {
+  page-break-after: always;
+  text-align: center;
+  padding-top: 6rem;
+}
+.pdf-pre, pre, code {
+  page-break-inside: avoid !important;
+}
+.myanalysis, blockquote {
+  page-break-inside: avoid !important;
+}
+.pdf-header, .pdf-footer {
+  display: none;
+}
+@media print {
+  .pdf-header, .pdf-footer {
+    display: block !important;
+  }
+  .pdf-title-page {
+    page-break-after: always !important;
+  }
+  .pdf-pre, pre, code {
+    page-break-inside: avoid !important;
+  }
+  .myanalysis, blockquote {
+    page-break-inside: avoid !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #markdown-content, #markdown-content * {
+    visibility: visible !important;
+  }
+  #markdown-content {
+    position: absolute !important;
+    left: 0; top: 0; width: 100vw; background: white;
+    color: black;
+    box-shadow: none !important;
+    padding: 2rem !important;
+  }
+}
+
+/* GitHub-style markdown lists */
+.markdown-body ul {
+  list-style-type: disc;
+  margin-left: 2em;
+  padding-left: 0;
+}
+.markdown-body ol {
+  list-style-type: decimal;
+  margin-left: 2em;
+  padding-left: 0;
+}
+.markdown-body li {
+  margin-bottom: 0.25em;
 }

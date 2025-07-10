@@ -1,5 +1,7 @@
 # Thamer Alharbi - Blog
 
+![asciinema](/blog/welcome.cast?autoPlay=true&loop=true)
+
 Welcome to my personal blog where I share insights, tutorials, and experiences in the world of technology.
 ## Blog Categories
 
@@ -16,6 +18,5 @@ Discover the fascinating world of AI and machine learning. From traditional algo
 
 Feel free to reach out if you have questions, suggestions, or would like to collaborate on projects. Let's learn and grow together in the ever-evolving world of technology!
 
----
 
 *Last updated: July 2025*

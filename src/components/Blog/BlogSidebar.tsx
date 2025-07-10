@@ -5,7 +5,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/locales/translations";
-import { Home, ChevronDown, ChevronRight, FileText, ArrowRight, ArrowLeft } from "lucide-react";
+import { Home, ChevronDown, ChevronRight, FileText, ArrowRight, ArrowLeft, ChevronLeft } from "lucide-react";
 
 const BlogSidebar: React.FC<{ lang: "en" | "ar" }> = ({ lang }) => {
   const { posts, loading } = useBlogPosts();
@@ -13,6 +13,7 @@ const BlogSidebar: React.FC<{ lang: "en" | "ar" }> = ({ lang }) => {
   const { language } = useLanguage();
   const t = translations[language];
   const direction = lang === "ar" ? "rtl" : "ltr";
+  const isRTL = lang === "ar";
 
   // Track expanded directories by slug
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
@@ -73,14 +74,26 @@ const BlogSidebar: React.FC<{ lang: "en" | "ar" }> = ({ lang }) => {
                 onClick={() => toggleExpand(node.slug)}
                 aria-expanded={isExpanded}
               >
-                {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                <span className="ml-2">{highlight(node.title, search)}</span>
+                { isRTL ? 
+                   (<><span className="ml-2">{highlight(node.title, search)}</span>
+                  {isExpanded ? <ChevronDown size={16} /> : <ChevronLeft size={16} />}</>)
+                  :
+                  (<>{isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                  <span className="ml-2">{highlight(node.title, search)}</span></>)  
+                }
               </button>
-              {isExpanded && (
-                <div className="ml-4 border-l border-muted/30 pl-2">
-                  {renderTree(node.children!, level + 1)}
-                </div>
-              )}
+
+                {isExpanded && (
+                  isRTL ? (
+                    <div className="mr-4 border-r border-muted/30 pr-2">
+                      {renderTree(node.children!, level + 1)}
+                    </div>
+                  ) : (
+                    <div className="ml-4 border-l border-muted/30 pl-2">
+                      {renderTree(node.children!, level + 1)}
+                    </div>
+                  )
+                )}
             </div>
           ) : (
             <Link
@@ -92,10 +105,11 @@ const BlogSidebar: React.FC<{ lang: "en" | "ar" }> = ({ lang }) => {
               }`}
             >
               <FileText size={16} className="mr-2" />
-              <span>{highlight(node.title, search)}</span>
+              <span>{highlight(node.title, search)}</span> 
               {isActive && (
                 <span className="ml-2 w-2 h-2 bg-primary-foreground rounded-full"></span>
               )}
+              
             </Link>
           )}
         </div>
